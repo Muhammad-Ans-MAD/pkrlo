@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,10 +24,17 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setTitle("Card Loader");
         t1=(EditText)findViewById(R.id.editTextTextEmailAddress);
         t2=(EditText)findViewById(R.id.editTextTextPassword);
         btn1=(Button)findViewById(R.id.button);
-        btn1.setOnClickListener(new View.OnClickListener() {
+        fragmentlogo myfragmentc=new fragmentlogo();
+        FragmentManager frm=getSupportFragmentManager();
+        FragmentTransaction frt=frm.beginTransaction();
+        frt.add(R.id.main,myfragmentc);
+        frt.commit();
+
+          btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = t1.getText().toString().trim();

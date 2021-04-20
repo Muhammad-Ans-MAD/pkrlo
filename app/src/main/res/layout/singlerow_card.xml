@@ -15,7 +15,6 @@
         android:padding="16dp"
         >
 
-
         <ImageView
             android:layout_width="180dp"
             android:layout_height="180dp"

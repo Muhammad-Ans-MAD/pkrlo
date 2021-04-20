@@ -11,38 +11,34 @@
    <ImageView
        android:layout_width="match_parent"
        android:layout_height="350dp"
+       android:layout_marginTop="20dp"
        android:id="@+id/img"
 
        />
-<!--   <TextView-->
-<!--       android:id="@+id/click"-->
-<!--       android:layout_width="wrap_content"-->
-<!--       android:layout_height="wrap_content"-->
-<!--       android:layout_below="@+id/img"-->
-<!--       android:layout_marginTop="10dp"-->
-<!--       android:text="Click Here to select an Image"-->
-<!--       android:textSize="22sp"-->
-<!--       android:textStyle="bold" />-->
 
    <Button
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
+       android:layout_marginLeft="20dp"
+
        android:layout_below="@id/img"
        android:layout_marginTop="20dp"
        android:text="Detect"
-       android:background="#F44336"
+       android:background="@drawable/gol"
        android:textAllCaps="false"
        android:id="@+id/btn"
        />
    <Button
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:layout_below="@id/btn"
-       android:layout_marginTop="30dp"
+
+       android:layout_toRightOf="@+id/btn"
+       android:layout_marginLeft="60dp"
+
+       android:layout_marginTop="390dp"
        android:text="Call"
-       android:background="@color/teal_700"
+
+       android:background="@drawable/gol"
        android:textAllCaps="false"
        android:id="@+id/btn1"
        />
@@ -60,47 +56,68 @@
 <!--       android:layout_marginLeft="20dp"-->
 <!--       android:textSize="20dp"-->
 <!--       android:maxLines="4"-->
-<!--       />-->
+<!--
+       />-->
+   <GridLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="443dp"
+       android:id="@+id/grid"
+       android:columnCount="2"
+
+       >
    <RadioGroup
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_below="@+id/btn1"
+       android:layout_below="@+id/btn"
+       android:layout_marginTop="5dp"
+
        android:id="@+id/radiogrp">
 
       <RadioButton
-          android:layout_width="match_parent"
+          android:layout_width="90dp"
           android:layout_height="wrap_content"
-          android:text="JAZZ"
+          android:text="Jazz"
           android:textSize="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginLeft="25dp"
           android:id="@+id/jazz"
           />
       <RadioButton
-          android:layout_width="match_parent"
+          android:layout_width="100dp"
           android:layout_height="wrap_content"
           android:text="Ufone"
+
+          android:layout_marginLeft="25dp"
           android:textSize="20dp"
+
 
           android:id="@+id/ufone"
           />
       <RadioButton
-          android:layout_width="match_parent"
+          android:layout_width="100dp"
           android:layout_height="wrap_content"
           android:text="Zong"
+          android:layout_marginTop="5dp"
+          android:layout_marginLeft="25dp"
           android:textSize="20dp"
           android:id="@+id/Zong"
           />
       <RadioButton
-          android:layout_width="match_parent"
+          android:layout_width="120dp"
           android:layout_height="wrap_content"
-          android:text="TELENOR"
+          android:text="Telenor"
+          android:layout_marginTop="0dp"
+          android:layout_marginLeft="25dp"
           android:textSize="20dp"
           android:id="@+id/telenor"
           />
 
+
    </RadioGroup>
 
 
-
+   </GridLayout >
 
 
 

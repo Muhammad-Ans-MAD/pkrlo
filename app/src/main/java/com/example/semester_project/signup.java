@@ -1,4 +1,5 @@
 package com.example.semester_project;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -9,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +27,7 @@ public class signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        setTitle("Card Loader");
         mAuth = FirebaseAuth.getInstance();
 
         edt1=(EditText)findViewById(R.id.editTextTextPersonName);
@@ -32,6 +36,12 @@ public class signup extends AppCompatActivity {
         edt4=(EditText)findViewById(R.id.editTextTextPassword);
         edt5=(EditText)findViewById(R.id.editTextTextPassword2);
         btn=(Button)findViewById(R.id.button);
+        signupFragment fragment=new signupFragment();
+        FragmentManager manager=getSupportFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        transaction.add(R.id.signupmain,fragment);
+        transaction.commit();
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +72,7 @@ public class signup extends AppCompatActivity {
                     edt4.requestFocus();
                     return;
                 }
-                if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches())
+                if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches())//email KA pattren dhky ga for example .,@ wgra
                 {
                     edt3.setError("Email is required");
                     edt3.requestFocus();
@@ -78,12 +88,7 @@ public class signup extends AppCompatActivity {
                     edt5.requestFocus();
                     return;
                 }
-//                if(Re_Pass!=Pass)
-//                {
-//                    edt5.setError("Password Not Match");
-//                    edt5.requestFocus();
-//                    return;
-//                }
+
                 mAuth.createUserWithEmailAndPassword(Email,Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -102,14 +107,12 @@ public class signup extends AppCompatActivity {
                                     }
                                     else {
                                         Toast.makeText(getApplicationContext(),"Registration Error",Toast.LENGTH_LONG).show();
-
                                     }
                                 }
                             });
-
                         }
                         else {
-                            Toast.makeText(getApplicationContext(),"Registration Error on first on complete",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Registration Error ",Toast.LENGTH_LONG).show();
 
                         }
                     }

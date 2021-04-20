@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class myadapterclass extends RecyclerView.Adapter<myviewholderclass>
 {
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+
     ArrayList<mymodelclass> data;
     Context context;
     public myadapterclass(ArrayList<mymodelclass> data,Context context)
